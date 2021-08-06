@@ -18,7 +18,7 @@ class Circle {
         this.y += this.speed;
         // console.log(this.y);
         if (!isGameOver) {
-            if (this.y + this.radius >= HEIGHT) {
+            if (this.y + this.radius > HEIGHT) {
                 // console.log(score.textContent);
                 isGameOver = true;
                 score.textContent = 'Game over, Your score: ' + score.textContent;
@@ -55,7 +55,7 @@ canvas.width = WIDTH;
 canvas.height = HEIGHT;
 
 // Radius
-let r = 10 + Math.floor(Math.random() * 50)
+let r = 20 + Math.floor(Math.random() * 50)
 
 let circle = new Circle(
     // x coordinate
@@ -82,7 +82,7 @@ function animate() {
 }
 
 function generateNewCircle() {
-    let r = 10 + Math.floor(Math.random() * 50)
+    let r = 20 + Math.floor(Math.random() * 50)
     circle = new Circle(
         // x coordinate
         r + Math.floor(Math.random() * (WIDTH - 2 * r)),
@@ -100,7 +100,7 @@ window.onclick = function(e) {
 
     // distance
     let d = Math.sqrt(
-        Math.pow((circle.x - e.clientX), 2) + Math.pow((circle.x - e.clientX), 2)
+        Math.pow((circle.x - e.clientX), 2) + Math.pow((circle.y - e.clientY), 2)
     )
 
     if (d <= circle.radius) {
